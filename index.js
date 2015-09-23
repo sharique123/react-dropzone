@@ -6,7 +6,8 @@ var Dropzone = React.createClass({
   getDefaultProps: function() {
     return {
       disableClick: false,
-      multiple: true
+      multiple: true,
+      directory: false
     };
   },
 
@@ -31,7 +32,8 @@ var Dropzone = React.createClass({
 
     disableClick: React.PropTypes.bool,
     multiple: React.PropTypes.bool,
-    accept: React.PropTypes.string,
+    directory: React.PropTypes.bool,
+    accept: React.PropTypes.string
   },
 
   allFilesAccepted: function(files) {
@@ -185,6 +187,8 @@ var Dropzone = React.createClass({
           ref='fileInput'
           style={{ display: 'none' }}
           multiple={this.props.multiple}
+          directory={this.props.directory}
+          webkitdirectory={this.props.directory}
           accept={this.props.accept}
           onChange={this.onDrop}
         />
